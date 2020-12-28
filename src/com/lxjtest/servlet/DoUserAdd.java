@@ -16,7 +16,7 @@ public class DoUserAdd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //设置字符集
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("test/html;charset=utf-8");
+        response.setContentType("text/html;charset=utf-8");
 
 //        String id=request.getParameter("id");
         String username=request.getParameter("username");

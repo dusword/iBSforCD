@@ -8,6 +8,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+<script type="text/javascript">
+  function beforeSubmit(form){
+    if(form.username.value==''){
+      alert('用户名不能为空！');
+      form.username.focus();
+      location.href='index.jsp'
+      return false;
+    }
+    if(form.password.value==''){
+      alert('密码不能为空！');
+      form.password.focus();
+      location.href='index.jsp'
+      return false;
+    }
+    if(form.password.value.length<6){
+      alert('密码至少为6位，请重新输入！');
+      form.password.focus();
+      location.href='index.jsp'
+      return false;
+    }
+
+    return true;
+  }
+</script>
 
 <head>
   <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -55,7 +79,7 @@
 
 
 <div style="float:top;padding-top: 30px;background-color: aliceblue">
-<form action="" method="post" name="formindex">
+<form action="" method="post" name="formindex" onsubmit="return beforeSubmit(this)">
 
   <p style="color: cadetblue;
   font-family:Verdana;
