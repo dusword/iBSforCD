@@ -18,7 +18,7 @@ public class DoUserLogin extends HttpServlet {
 
         //设置字符集
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("test/html;charset=utf-8");
+        response.setContentType("text/html;charset=utf-8");
 
 //        String id=request.getParameter("id");
         String username=request.getParameter("username");
@@ -30,11 +30,18 @@ public class DoUserLogin extends HttpServlet {
             response.sendRedirect("DoUserSelect");
         }else {
             PrintWriter out= response.getWriter();
-            out.write("<script>");
-            out.write("alert'失败'");
-            out.write("location.href='failed.jsp'");
-            out.write("</script>");
-            out.close();
+
+//            out.println("<html>");
+//            out.println("<head><meta charset='utf-8'/><title>test</title></head>");
+//            out.println("<body>");
+            out.println("<script>");
+            out.println("alert('失败')");
+            out.println("location.href='index.jsp'");
+            out.println("</script>");
+//            out.println("</body>");
+//            out.println("</html>");
+//            out.flush();
+//            out.close();
         }
 
 
