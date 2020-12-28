@@ -2,6 +2,7 @@ package com.lxjtest.servlet;
 
 import com.lxjtest.dao.UserDao;
 import com.lxjtest.entity.User;
+import com.sun.xml.internal.bind.v2.TODO;
 import org.apache.tomcat.util.buf.UDecoder;
 
 import javax.servlet.ServletException;
@@ -30,7 +31,7 @@ public class DoUserLogin extends HttpServlet {
             response.sendRedirect("DoUserSelect");
         }else {
             PrintWriter out= response.getWriter();
-
+            // TODO: 2020/12/28 create by lxj 优化script显示
 //            out.println("<html>");
 //            out.println("<head><meta charset='utf-8'/><title>test</title></head>");
 //            out.println("<body>");
