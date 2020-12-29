@@ -28,14 +28,18 @@ public class DoUserAdd extends HttpServlet {
 
         if (count>0)
         {
-            response.sendRedirect("DoUserSelect");
+            PrintWriter printWriter=response.getWriter();
+            printWriter.println("<script>");
+            printWriter.println("alert('注册成功！')");
+            printWriter.println("location.href='DoUserSelect'");
+            printWriter.println("</script>");
         }else {
             PrintWriter printWriter=response.getWriter();
-            printWriter.write("<script>");
-            printWriter.write("alert('failed!')");
-//            printWriter.write("location.href='/index.jsp'");
-            printWriter.write("</script>");
-            response.sendRedirect("failed.jsp");
+            printWriter.println("<script>");
+            printWriter.println("alert('注册失败，用户名已存在！')");
+            printWriter.println("location.href='index.jsp'");
+            printWriter.println("</script>");
+//            response.sendRedirect("failed.jsp");
         }
     }
 
