@@ -28,21 +28,20 @@ public class DoUserLogin extends HttpServlet {
         int count= UserDao.verify(username,password);
 
         if (count>0){
-            response.sendRedirect("DoUserSelect");
+            PrintWriter printWriter=response.getWriter();
+            printWriter.println("<script>");
+            printWriter.println("alert('登陆成功')");
+            printWriter.println("location.href='DoUserSelect'");
+            printWriter.println("</script>");
+//            response.sendRedirect("DoUserSelect");
         }else {
             PrintWriter out= response.getWriter();
             // TODO: 2020/12/28 create by lxj 优化script显示
-//            out.println("<html>");
-//            out.println("<head><meta charset='utf-8'/><title>test</title></head>");
-//            out.println("<body>");
             out.println("<script>");
             out.println("alert('失败')");
             out.println("location.href='index.jsp'");
             out.println("</script>");
-//            out.println("</body>");
-//            out.println("</html>");
-//            out.flush();
-//            out.close();
+
         }
 
 

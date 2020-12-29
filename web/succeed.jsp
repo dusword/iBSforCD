@@ -53,9 +53,6 @@
 
 
 <div style="margin-top: 60px" >
-<div style="color: green;text-align: center;background-color: aliceblue;width: 100%;float: top">
-  成功
-</div>
 
 <div  style=" padding-left: 30px;float: top">
   <table >

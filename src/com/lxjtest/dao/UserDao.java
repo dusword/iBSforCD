@@ -12,6 +12,28 @@ import java.sql.*;
 
 public class UserDao {
     public static int insert(User user){
+        int count=0;
+        Connection connection=BaseDao.getConn();
+        ResultSet resultSet=null;
+        PreparedStatement preparedStatement = null;
+        String sqlpre="select count(*) from test_user where USER_NAME=?";
+
+        try {
+            preparedStatement=connection.prepareStatement(sqlpre);
+            preparedStatement.setString(1,user.getUSER_NAME());
+            resultSet=preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                count = resultSet.getInt(1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            BaseDao.closeAll(resultSet,preparedStatement,connection);
+        }
+        if (count>0){
+            return 0;
+        }
+
         String sql="insert into test_user values(null,?,?)";
         Object[] params={
                 user.getUSER_NAME(),
