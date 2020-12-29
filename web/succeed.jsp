@@ -60,12 +60,14 @@
 <div  style=" padding-left: 30px;float: top">
   <table >
     <tr >
+      <th style="padding-left: 20px">唯一ID</th>
       <th style="padding-left: 20px">账户</th>
       <th style="padding-left: 20px">密码</th>
     </tr>
 
     <c:forEach items="${userlist}" var="user">
       <tr>
+        <td style="padding-left: 20px">${user.USER_ID}</td>
         <td style="padding-left: 20px">${user.USER_NAME}</td>
         <td style="padding-left: 20px">${user.USER_PASSWORD}</td>
       </tr>

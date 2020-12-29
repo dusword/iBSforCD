@@ -1,21 +1,21 @@
 package com.lxjtest.entity;
 
 public class User {
-    String USER_ID;
+    int USER_ID;
     String USER_NAME;
     String USER_PASSWORD;
 
-    public User( String USER_NAME, String USER_PASSWORD) {
+    public User(String USER_NAME, String USER_PASSWORD) {
 //        this.USER_ID = USER_ID;
         this.USER_NAME = USER_NAME;
         this.USER_PASSWORD = USER_PASSWORD;
     }
 
-    public String getUSER_ID() {
+    public int getUSER_ID() {
         return USER_ID;
     }
 
-    public void setUSER_ID(String USER_ID) {
+    public void setUSER_ID(int USER_ID) {
         this.USER_ID = USER_ID;
     }
 
@@ -34,4 +34,5 @@ public class User {
     public void setUSER_PASSWORD(String USER_PASSWORD) {
         this.USER_PASSWORD = USER_PASSWORD;
     }
+
 }
