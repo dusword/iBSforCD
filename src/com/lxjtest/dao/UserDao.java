@@ -37,6 +37,7 @@ public class UserDao {
                         resultSet.getString("USER_NAME"),
                         resultSet.getString("USER_PASSWORD")
                 );
+                user.setUSER_ID(resultSet.getInt("USER_ID"));
                 list.add(user);
             }
 
