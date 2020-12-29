@@ -12,7 +12,7 @@ import java.sql.*;
 
 public class UserDao {
     public static int insert(User user){
-        String sql="insert into test_user values(?,?)";
+        String sql="insert into test_user values(null,?,?)";
         Object[] params={
                 user.getUSER_NAME(),
                 user.getUSER_PASSWORD()
@@ -33,6 +33,7 @@ public class UserDao {
 
             while (resultSet.next()){
                 User user=new User(
+//                        resultSet.getInt("USER_ID"),
                         resultSet.getString("USER_NAME"),
                         resultSet.getString("USER_PASSWORD")
                 );
