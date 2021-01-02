@@ -109,10 +109,10 @@
   </p>
 
   <p style="text-align: center">
-    <img src="image/pineapplewizcat.png"
+    <img src="image/16919569A3EB225ED04743A54311DB4E.png"
          alt="picture"
-         width="200"
-         height="150" />
+         width="400"
+         height="300" />
   </p>
 
 </form>
