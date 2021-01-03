@@ -79,7 +79,8 @@
                     <th style="padding-left: 20px">调查编号</th>
                     <th style="padding-left: 20px">调查名称</th>
                     <th style="padding-left: 20px">时间</th>
-                    <th style="padding-left: 20px">时间地点</th>
+                    <th style="padding-left: 20px">地点</th>
+                    <th style="padding-left: 20px">操作</th>
                 </tr>
 
                 <c:forEach items="${usersurveylist}" var="survey">
@@ -88,6 +89,8 @@
                         <td style="padding-left: 20px">${survey.SURVEY_NAME}</td>
                         <td style="padding-left: 20px">${survey.SURVEY_DATE}</td>
                         <td style="padding-left: 20px">${survey.SURVEY_PLACE}</td>
+                        <td style="padding-left: 20px"><button type="button"><a href="DoRecordCheck?surveyid=${survey.SURVEY_ID}">查看</a></button> </td>
+                        <td style="padding-left: 20px"><button type="button"><a href="DoSurveyRemove?surveyid=${survey.SURVEY_ID}">删除</a></button> </td>
                     </tr>
                 </c:forEach>
             </table>

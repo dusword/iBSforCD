@@ -31,11 +31,11 @@ public class Survey {
         this.SURVEY_NAME = SURVEY_NAME;
     }
 
-    public int getSURVEYUSER_ID() {
+    public int getSURVEY_USER_ID() {
         return SURVEY_USER_ID;
     }
 
-    public void setSURVEYUSER_ID(int SURVEYUSER_ID) {
+    public void setSURVEY_USER_ID(int SURVEYUSER_ID) {
         this.SURVEY_USER_ID = SURVEYUSER_ID;
     }
 

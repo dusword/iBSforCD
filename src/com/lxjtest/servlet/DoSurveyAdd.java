@@ -26,14 +26,20 @@ public class DoSurveyAdd extends HttpServlet {
 
 
         Survey survey = new Survey(surveyname, surveyuserid, surveyplace);
+        SurveyDao.insert(survey);
 
-        int count = SurveyDao.insert(survey);
+        int surveyid=0;
+        Survey survey1=SurveyDao.adminSurvey(surveyname,surveyuserid,surveyplace);
+        surveyid=survey1.getSURVEY_ID();
 
-        if (count > 0) {
+
+        if (surveyid > 0) {
             PrintWriter printWriter = response.getWriter();
             printWriter.println("<script>");
             printWriter.println("alert('创建成功！')");
             printWriter.println("</script>");
+            request.getSession().setAttribute("surveyid",surveyid);
+            request.getRequestDispatcher("record.jsp").forward(request,response);
 //            request.setAttribute("");
 
         } else {
