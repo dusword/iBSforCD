@@ -8,7 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+
 <script type="text/javascript">
   function beforeSubmit(form){
     if(form.username.value==''){
@@ -117,6 +120,33 @@
 
 </form>
 </div>
+
+<div style="margin-top: 10px">
+  <label>请求接口</label>
+  <input type="txt" id="txtbefore" style="width: 200px"/>
+  <input type="button" id="btnRefresh" value="参数传给接口" onclick="visit()">
+</div>
+
+
+<%--  <script>--%>
+<%--    function visit() {--%>
+<%--      $.ajax({--%>
+<%--        type: "POST",--%>
+<%--        url: "http://localhost:8080/minio/visit",--%>
+<%--        data:"",--%>
+<%--        contentType: "application/json;charset=UTF-8"--%>
+<%--      });--%>
+<%--    }--%>
+<%--  </script>--%>
+<%--<script>--%>
+<%--  window.onload=function (){--%>
+<%--    var url="http://localhost:8080/minio/visit";--%>
+<%--    var request= new XMLHttpRequest();--%>
+<%--    request.open("DELETE",url);--%>
+<%--    request.send(null);--%>
+<%--  }--%>
+<%--</script>--%>
+
 
 </body>
 </html>
