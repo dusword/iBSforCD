@@ -5,8 +5,7 @@
   Time: 16:37
   To change this template use File | Settings | File Templates.
 --%>
-<!DOCTYPE html>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -39,27 +38,41 @@
       background-color: #111;
     }
   </style>
-  <title>失败</title>
-
+  <title>成功</title>
 </head>
+
 <body style="margin-left: 0;">
 
   <ul>
     <li><a href="index.jsp">主页</a></li>
-    <li><a class="active" href="failed.jsp">失败</a></li>
-    <li><a href="succeed.jsp">成功</a></li>
     <li style="float: right"><a href="">关于</a></li>
   </ul>
 
-<div style="float: top;padding: 30px;background-color: aliceblue">
-<p style="text-align: center;color: red;margin-top:20px">
-失败
-</p>
-  <form action="index.jsp" style="text-align: center">
-    <input type="submit" value="返回注册界面">
-  </form>
-</div>
+  <div style="float:top;padding-top: 30px;background-color: aliceblue">
+    <form action="DoSurveyAdd" method="post" name="formsurevy">
 
+      <p style="color: cadetblue;
+  font-family:Verdana;
+  font-size: 20px;
+  text-align: center">
+
+        SURVEY名称: <input type="text"
+                   placeholder="SURVEY名称"
+                   name="surveyname"/><br/>
+
+        SURVEY地点: <input type="text"
+                   placeholder="SURVEY地点"
+                   name="surveyplace"/><br/><br/>
+
+        <input style="color: cadetblue;"
+               type="submit"
+               value="创建">
+        <input style="color: cadetblue;margin-left: 20px"
+               type="reset"
+               value="重置">
+      </p>
+    </form>
+  </div>
 
 </body>
 </html>

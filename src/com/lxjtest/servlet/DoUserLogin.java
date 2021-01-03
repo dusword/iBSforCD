@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -28,11 +29,16 @@ public class DoUserLogin extends HttpServlet {
         int count= UserDao.verify(username,password);
 
         if (count>0){
-            PrintWriter printWriter=response.getWriter();
-            printWriter.println("<script>");
-            printWriter.println("alert('登陆成功')");
-            printWriter.println("location.href='DoUserSelect'");
-            printWriter.println("</script>");
+            User user=UserDao.adminUser(username,password);
+            request.setAttribute("user",user);
+            request.setAttribute("isLogin","1");
+            request.getSession().setAttribute("user",user);
+            request.getRequestDispatcher("succeed.jsp").forward(request,response);
+//            PrintWriter printWriter=response.getWriter();
+//            printWriter.println("<script>");
+//            printWriter.println("alert('登陆成功')");
+//            printWriter.println("location.href='DoUserSelect'");
+//            printWriter.println("</script>");
 //            response.sendRedirect("DoUserSelect");
         }else {
             PrintWriter out= response.getWriter();
