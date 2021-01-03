@@ -9,8 +9,9 @@ public class Survey {
     Date SURVEY_DATE;
     String SURVEY_PLACE;
 
-    public Survey(String SURVEY_NAME, String SURVEY_PLACE) {
+    public Survey(String SURVEY_NAME, int SURVEYUSER_ID, String SURVEY_PLACE) {
         this.SURVEY_NAME = SURVEY_NAME;
+        this.SURVEYUSER_ID = SURVEYUSER_ID;
         this.SURVEY_PLACE = SURVEY_PLACE;
     }
 

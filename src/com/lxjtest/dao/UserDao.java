@@ -97,4 +97,34 @@ public class UserDao {
             return count;
         }
 
+        public static User adminUser(String username,String password) {
+            Connection connection = BaseDao.getConn();
+            User user = null;
+            PreparedStatement preparedStatement = null;
+            ResultSet resultSet = null;
+
+            try {
+                String sql = "select * from test_user where USER_NAME=? and USER_PASSWORD=?";
+                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, password);
+                resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()) {
+                    user = new User(
+                            resultSet.getString("USER_NAME"),
+                            resultSet.getString("USER_PASSWORD")
+
+                    );
+                    user.setUSER_ID(resultSet.getInt("USER_ID"));
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                BaseDao.closeAll(resultSet, preparedStatement, connection);
+            }
+            return user;
+        }
+
 }

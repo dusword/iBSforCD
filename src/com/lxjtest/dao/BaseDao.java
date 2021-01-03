@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class BaseDao {
 
-    static String url = "jdbc:mysql://152.136.120.171:3306/TEST"; //数据库名
+    static String url = "jdbc:mysql://152.136.120.171:3306/TEST?useUnicode=true&characterEncoding=UTF-8"; //数据库名
     static String username = "root";  //数据库用户名
     static String password = "lxj19990716";  //数据库用户密码
 
