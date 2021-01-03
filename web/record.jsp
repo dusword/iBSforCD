@@ -51,24 +51,29 @@
   </ul>
 
   <div style="float:top;padding-top: 30px;background-color: aliceblue">
-    <form action="DoSurveyAdd" method="post" name="formsurevy">
+    <form action="DoRecordAdd" method="post" name="formrecord">
 
       <p style="color: cadetblue;
   font-family:Verdana;
   font-size: 20px;
   text-align: center">
 
-        SURVEY名称: <input type="text"
-                   placeholder="SURVEY名称"
-                   name="surveyname"/><br/>
+        本次调查编号：<input type="text"
+                      name="surveyid"
+                      readonly="readonly"
+                      value="${surveyid}"/><br/>
 
-        SURVEY地点: <input type="text"
-                   placeholder="SURVEY地点"
-                   name="surveyplace"/><br/><br/>
+        鸟类名称: <input type="text"
+                   placeholder="名称"
+                   name="birdname"/><br/>
+
+        数目: <input type="text"
+                   placeholder="数目"
+                   name="birdnumber"/><br/><br/>
 
         <input style="color: cadetblue;"
                type="submit"
-               value="创建">
+               value="添加">
         <input style="color: cadetblue;margin-left: 20px"
                type="reset"
                value="重置">

@@ -33,6 +33,7 @@ public class DoUserLogin extends HttpServlet {
             request.setAttribute("user",user);
             request.setAttribute("isLogin","1");
             request.getSession().setAttribute("user",user);
+            request.getSession().setAttribute("isLoginS","1");
             request.getRequestDispatcher("succeed.jsp").forward(request,response);
 //            PrintWriter printWriter=response.getWriter();
 //            printWriter.println("<script>");

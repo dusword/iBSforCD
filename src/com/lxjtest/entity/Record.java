@@ -6,7 +6,8 @@ public class Record {
     String BIRD_NAME;
     String BIRD_NUMBER;
 
-    public Record(String BIRD_NAME, String BIRD_NUMBER) {
+    public Record(int SURVEY_ID,String BIRD_NAME, String BIRD_NUMBER) {
+        this.SURVEY_ID=SURVEY_ID;
         this.BIRD_NAME = BIRD_NAME;
         this.BIRD_NUMBER = BIRD_NUMBER;
     }

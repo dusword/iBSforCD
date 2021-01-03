@@ -53,7 +53,7 @@
 </c:if>
     <c:if test="${isLogin==1}">
     <li><a href="survey.jsp">创建SURVEY</a></li>
-      <li><a href="">浏览SURVEY</a> </li>
+      <li><a href="DoSurveyCheck">浏览SURVEY</a> </li>
     </c:if>
     <li style="float: right"><a href="">关于</a></li>
   </ul>
@@ -73,7 +73,6 @@
   </div>
 
   <c:if test="${isLogin!=1}">
-    <a href="index.jsp">前往登陆</a>
     <div  style=" padding-left: 30px;float: top">
       <table >
         <tr >

@@ -1,8 +1,7 @@
 package com.lxjtest.servlet;
 
-import com.lxjtest.dao.SurveyDao;
-import com.lxjtest.entity.Survey;
-import com.lxjtest.entity.User;
+import com.lxjtest.dao.RecordDao;
+import com.lxjtest.entity.Record;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,44 +11,38 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/DoSurveyAdd")
-public class DoSurveyAdd extends HttpServlet {
+@WebServlet("/DoRecordAdd")
+public class DoRecordAdd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //设置字符集
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
 
-        String surveyname = request.getParameter("surveyname");
-        String surveyplace = request.getParameter("surveyplace");
-        User user = (User) request.getSession().getAttribute("user");
-        int surveyuserid=user.getUSER_ID();
+        String birdname=request.getParameter("birdname");
+        String birdnumber=request.getParameter("birdnumber");
+
+        int surveyid= (int) request.getSession().getAttribute("surveyid");
 
 
-        Survey survey = new Survey(surveyname, surveyuserid, surveyplace);
-        SurveyDao.insert(survey);
+        Record record=new Record(surveyid,birdname,birdnumber);
+        int count=0;
+        count=RecordDao.insert(record);
 
-        int surveyid=0;
-        Survey survey1=SurveyDao.adminSurvey(surveyname,surveyuserid,surveyplace);
-        surveyid=survey1.getSURVEY_ID();
-
-
-        if (surveyid > 0) {
+        if (count > 0) {
             PrintWriter printWriter = response.getWriter();
             printWriter.println("<script>");
-            printWriter.println("alert('创建成功！')");
+            printWriter.println("alert('添加成功！')");
             printWriter.println("</script>");
-            request.getSession().setAttribute("surveyid",surveyid);
             request.getRequestDispatcher("record.jsp").forward(request,response);
 //            request.setAttribute("");
 
         } else {
             PrintWriter printWriter = response.getWriter();
             printWriter.println("<script>");
-            printWriter.println("alert('注册失败！')");
-            printWriter.println("location.href='survey.jsp'");
+            printWriter.println("alert('添加失败！')");
+            printWriter.println("location.href='record.jsp'");
             printWriter.println("</script>");
 
         }
-
     }
 }
