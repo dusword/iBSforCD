@@ -94,4 +94,12 @@ public class SurveyDao{
 
         return list;
     }
+
+    public static int surveyDel(String surveyid) {
+
+        String sql="delete from survey where SURVEY_ID=?";
+        Object[] params={surveyid};
+        return  BaseDao.executeSql(sql,params);
+
+    }
 }
