@@ -45,6 +45,8 @@
 
   <ul>
     <li><a href="index.jsp">主页</a></li>
+    <li><a href="survey.jsp">创建SURVEY</a></li>
+    <li><a href="DoSurveyCheck">浏览SURVEY</a> </li>
     <li style="float: right"><a href="">关于</a></li>
   </ul>
 
