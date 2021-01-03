@@ -5,13 +5,13 @@ import java.util.Date;
 public class Survey {
     int SURVEY_ID;
     String SURVEY_NAME;
-    int SURVEYUSER_ID;
+    int SURVEY_USER_ID;
     Date SURVEY_DATE;
     String SURVEY_PLACE;
 
-    public Survey(String SURVEY_NAME, int SURVEYUSER_ID, String SURVEY_PLACE) {
+    public Survey(String SURVEY_NAME, int SURVEY_USER_ID, String SURVEY_PLACE) {
         this.SURVEY_NAME = SURVEY_NAME;
-        this.SURVEYUSER_ID = SURVEYUSER_ID;
+        this.SURVEY_USER_ID = SURVEY_USER_ID;
         this.SURVEY_PLACE = SURVEY_PLACE;
     }
 
@@ -32,11 +32,11 @@ public class Survey {
     }
 
     public int getSURVEYUSER_ID() {
-        return SURVEYUSER_ID;
+        return SURVEY_USER_ID;
     }
 
     public void setSURVEYUSER_ID(int SURVEYUSER_ID) {
-        this.SURVEYUSER_ID = SURVEYUSER_ID;
+        this.SURVEY_USER_ID = SURVEYUSER_ID;
     }
 
     public Date getSURVEY_DATE() {
