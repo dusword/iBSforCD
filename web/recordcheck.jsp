@@ -80,6 +80,7 @@
                     <th style="padding-left: 20px">调查编号</th>
                     <th style="padding-left: 20px">名称</th>
                     <th style="padding-left: 20px">数量</th>
+                    <th style="padding-left: 20px">上传的图片</th>
                 </tr>
 
                 <c:forEach items="${recordlist}" var="record">
@@ -88,6 +89,7 @@
                         <td style="padding-left: 20px">${record.SURVEY_ID}</td>
                         <td style="padding-left: 20px">${record.BIRD_NAME}</td>
                         <td style="padding-left: 20px">${record.BIRD_NUMBER}</td>
+                        <td style="padding-left: 20px"><button type="button"><a href="${record.BIRD_PICTURE_URL}">${record.BIRD_PICTURE_URL}</a></button></td>
                     </tr>
                 </c:forEach>
             </table>
