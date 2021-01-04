@@ -44,11 +44,11 @@
                 contentType: false,
                 processData: false,
                 success: function (res) {
-                    document.getElementById("myDiv").innerText="success";
+                    document.getElementById("myDiv").innerText=res;
                     return "success";
                 },
                 error: function (res) {
-                    document.getElementById("myDiv").innerText="false";
+                    document.getElementById("myDiv").innerText=res;
                     return "false"
                 }
             })
