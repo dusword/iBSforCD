@@ -20,11 +20,13 @@ public class DoRecordAdd extends HttpServlet {
 
         String birdname=request.getParameter("birdname");
         String birdnumber=request.getParameter("birdnumber");
+        String birdpictureurl=null;
+        birdpictureurl=request.getParameter("birdpictureurl");
 
         int surveyid= (int) request.getSession().getAttribute("surveyid");
 
 
-        Record record=new Record(surveyid,birdname,birdnumber);
+        Record record=new Record(surveyid,birdname,birdnumber,birdpictureurl);
         int count=0;
         count=RecordDao.insert(record);
 

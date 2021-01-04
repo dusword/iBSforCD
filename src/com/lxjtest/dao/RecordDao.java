@@ -15,11 +15,12 @@ public class RecordDao {
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
 
-        String sql = "insert into record (SURVEY_ID,BIRD_NAME,BIRD_NUMBER)values(?,?,?)";
+        String sql = "insert into record (SURVEY_ID,BIRD_NAME,BIRD_NUMBER,BIRD_PICTURE_URL)values(?,?,?,?)";
         Object[] params={
                 record.getSURVEY_ID(),
                 record.getBIRD_NAME(),
-                record.getBIRD_NUMBER()
+                record.getBIRD_NUMBER(),
+                record.getBIRD_PICTURE_URL()
         };
         return BaseDao.executeSql(sql,params);
     }
@@ -41,7 +42,8 @@ public class RecordDao {
                 Record record=new Record(
                         resultSet.getInt("SURVEY_ID"),
                         resultSet.getString("BIRD_NAME"),
-                        resultSet.getString("BIRD_NUMBER")
+                        resultSet.getString("BIRD_NUMBER"),
+                        resultSet.getString("BIRD_PICTURE_URL")
                 );
                 record.setRECORD_ID(resultSet.getInt("RECORD_ID"));
                 list.add(record);

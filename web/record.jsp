@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 <html>
 <head>
   <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -38,6 +39,59 @@
       background-color: #111;
     }
   </style>
+  <script>
+    function loadXMLDoc1()
+    {
+
+      var xhr;
+      if (window.XMLHttpRequest)
+      {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xhr=new XMLHttpRequest();
+      }
+      else
+      {
+        // IE6, IE5 浏览器执行代码
+        xhr=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xhr.onreadystatechange=function()
+      {
+        if (xhr.readyState==4 && xhr.status==200)
+        {
+          console.log(xhr.responseText);
+          // document.getElementById("myDiv").innerHTML=xhr.responseText;
+        }
+      }
+      xhr.open("DELETE", "http://localhost:8080/minio/delete?name=84b273fb93e74232810906eecd28931d.JPG");
+      xhr.send();
+
+    }
+    function upload()
+    {
+      var data = new FormData();
+      data.append("file", $("#pic")[0].files[0]);
+      var url;
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/minio/upload",
+        data: data,
+        async: false,
+        contentType: false,
+        processData: false,
+        success: function (res) {
+          var textId=$("#myTxt");
+          textId.val(res)
+          url=res;
+        },
+        error: function (res) {
+          var textId=$("#myTxt");
+          textId.val(res)
+          url=res;
+        }
+      });
+      return url;
+    }
+  </script>
   <title>成功</title>
 </head>
 
@@ -69,7 +123,11 @@
 
         数目: <input type="text"
                    placeholder="数目"
-                   name="birdnumber"/><br/><br/>
+                   name="birdnumber"/><br/>
+        上传图片的url：<input type="text"
+                        id="myTxt"
+                        value=""
+                        name="birdpictureurl"/><br/><br/>
 
         <input style="color: cadetblue;"
                type="submit"
@@ -79,6 +137,13 @@
                value="重置">
       </p>
     </form>
+    <div style="float:top;padding-top: 30px;background-color: aliceblue">
+    <form method="POST"  id="uploadForm" enctype="multipart/form-data">
+      <input type="file" id="pic" name="file">
+    </form>
+    <button type="button" id="btn" onclick="upload()">上传</button>
+    </div>
+
   </div>
 
 </body>
