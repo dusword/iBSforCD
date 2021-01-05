@@ -11,7 +11,6 @@
 
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 
-
 <script type="text/javascript">
   function beforeSubmit(form){
     if(form.username.value==''){
@@ -73,13 +72,10 @@
 
 <body style="margin-left: 0">
 
-
-
   <ul>
     <li><a class="active" href="index.jsp">主页</a></li>
     <li style="float: right"><a href="">关于</a></li>
   </ul>
-
 
 <div style="float:top;padding-top: 30px;background-color: aliceblue">
 <form action="" method="post" name="formindex" onsubmit="return beforeSubmit(this)">
@@ -119,7 +115,6 @@
 
 </form>
 </div>
-
 
 </body>
 </html>
